@@ -1,0 +1,31 @@
+.ajax-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background: rgba($color-base, .5);
+}
+
+.ajax-loader {
+  width: 60px;
+  height: 60px;
+  margin: 100px auto;
+  border: 8px solid $color-gray-secondary;
+  border-radius: 50%;
+  border-top: 8px solid $color-green;
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

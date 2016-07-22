@@ -1,3 +1,18 @@
+var AjaxSetup = function() {
+    $(document).ajaxStart(this.onStart.bind(this));
+    $(document).ajaxComplete(this.onComplete.bind(this));
+};
+
+AjaxSetup.prototype.onStart = function() {
+    this.$container = $('<div class="ajax-container"></div>');
+    this.$container.append('<div class="ajax-loader"></div>');
+    this.$container.appendTo('body');
+};
+
+AjaxSetup.prototype.onComplete = function() {
+    this.$container.remove();
+};
+
 var Mealz = function () {
     this.checkboxWrapperClass = 'checkbox-wrapper';
     this.hiddenClass = 'hidden';
@@ -264,6 +279,7 @@ Mealz.prototype.loadAjaxFormPayment = function($element) {
 
 $(document).ready(function() {
 
+    new AjaxSetup();
     var mealz = new Mealz();
     mealz.styleCheckboxes();
     mealz.styleSelects();
