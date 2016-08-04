@@ -21,12 +21,11 @@ class ParticipantController extends BaseController {
 			return $this->ajaxSessionExpiredRedirect();
 		}
 		if($this->getProfile() !== $participant->getProfile() && !$this->getDoorman()->isKitchenStaff()) {
-			return new JsonResponse(null, 403);
+			return $this->buildJsonErrorResponse('participant.wrong', 403);
 		}
-
 		$meal = $participant->getMeal();
 		if(!$this->getDoorman()->isUserAllowedToLeave($meal)) {
-			return new JsonResponse(null, 403);
+			return $this->buildJsonErrorResponse('participant.unallowed', 403);
 		}
 
 		$date = $meal->getDateTime()->format('Y-m-d');

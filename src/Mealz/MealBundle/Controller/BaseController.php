@@ -83,11 +83,15 @@ abstract class BaseController extends Controller {
 
 	protected function ajaxSessionExpiredRedirect()
 	{
-		$message = $this->get('translator')->trans('session.expired', [], 'messages');
-		$this->addFlashMessage($message, 'info');
-		$response = array(
-			'redirect' => $this->generateUrl('MealzUserBundle_login')
-		);
-		return new JsonResponse($response);
+		return $this->buildJsonErrorResponse('session.expired', 401, true);
+	}
+
+	protected function buildJsonErrorResponse($asset, $code, $forceLogOut = false) {
+		$message = $this->get('translator')->trans($asset, [], 'messages');
+		return new JsonResponse(array(
+			'error' => $message,
+			'logout' => $forceLogOut,
+			'url' => $this->generateUrl('MealzUserBundle_login')
+		), $code);
 	}
 }

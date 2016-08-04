@@ -53,7 +53,6 @@ class MealController extends BaseController {
 	 * @return \Symfony\Component\HttpFoundation\JsonResponse
 	 */
 	public function joinAction(Request $request, $date, $dish, $profile) {
-
 		if(!$this->getUser()) {
 			return $this->ajaxSessionExpiredRedirect();
 		}
@@ -62,11 +61,11 @@ class MealController extends BaseController {
 		$meal = $this->getMealRepository()->findOneByDateAndDish($date, $dish);
 
 		if(!$meal) {
-			return new JsonResponse(null, 404);
+			return $this->buildJsonErrorResponse('meal.wrong', 404);
 		}
 
 		if(!$this->getDoorman()->isUserAllowedToJoin($meal)) {
-			return new JsonResponse(null, 403);
+			return $this->buildJsonErrorResponse('participant.unallowed', 403);
 		}
 
 		if (null === $profile) {
@@ -75,7 +74,7 @@ class MealController extends BaseController {
 			$profileRepository = $this->getDoctrine()->getRepository('MealzUserBundle:Profile');
 			$profile = $profileRepository->find($profile);
 		} else {
-			return new JsonResponse(null, 403);
+			return $this->buildJsonErrorResponse('participant.unallowed', 403);
 		}
 
 		try {
@@ -89,7 +88,7 @@ class MealController extends BaseController {
 				$em->flush();
 			});
 		} catch (ParticipantNotUniqueException $e) {
-			return new JsonResponse(null, 422);
+			return $this->buildJsonErrorResponse('participant.unique', 422);
 		}
 
 		if ($this->getDoorman()->isKitchenStaff()) {
