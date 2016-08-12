@@ -2,6 +2,7 @@
 //  Colors
 //**************************************
 $color-white: #fff;
+$color-black: #000;
 $color-base: #606b72;
 $color-secondary: #acbdc7;
 $color-body: #f2f5f7;
@@ -29,7 +30,8 @@ $font-bold: "ClanOTBold", sans-serif;
 //**************************************
 //  Breakpoints
 //**************************************
-$bp-smaller: 360px;
-$bp-small: 660px;
-$bp-medium: 850px;
-$bp-large: 1220px;
+$bp-extra-small: 321px;
+$bp-small: 361px;
+$bp-medium: 768px;
+$bp-large: 919px;
+$bp-extra-large: 1219px;

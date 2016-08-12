@@ -270,7 +270,7 @@ $(document).ready(function() {
 
     $('.hamburger').on('click', function() {
         $(this).toggleClass('is-active');
-        $('.header-content').toggleClass('is-open');
+        $('body').toggleClass('navigate');
     });
 
     $('.load-ajax-form').on('click', function(e) {

@@ -7,30 +7,31 @@
 
     margin-top: -25px;
     padding: 25px 0 40px;
-    background: url('../images/list-background.png') top center $color-white repeat-y;
-    box-shadow: inset 0 -40px 35px rgba($color-white, 1);
+    background-image: none;
+    box-shadow: none;
+
 
     @include breakpoint(medium) {
-      background-image: none;
-      box-shadow: none;
+      background: url('../images/list-background.png') top center $color-white repeat-y;
+      box-shadow: inset 0 -40px 35px rgba($color-white, 1);
     }
   }
 
   .week {
-    float: left;
-    width: 46%;
+    width: 100%;
 
     @include breakpoint(medium) {
-      float: none;
-      width: 100%;
-
-      &:last-child {
-        margin-top: 40px;
-      }
+      float: left;
+      width: 46%;
     }
 
     &:last-child {
-      float: right;
+      margin-top: 40px;
+
+      @include breakpoint(medium) {
+        float: right;
+        margin-top: 0;
+      }
     }
   }
 
@@ -74,20 +75,20 @@
   }
 
   .no-meals {
-    width: 350px;
-    margin: 200px auto 0;
+    width: 100%;
+    margin: 40px auto 0;
     padding-top: 150px;
     color: $color-secondary;
-    background: url('../images/meal.png') top left 130px no-repeat;
+    background: url('../images/meal.png') top left 60% no-repeat;
     font-size: 18px;
     font-family: $font-bold;
     line-height: 1.5;
     text-align: center;
 
     @include breakpoint(medium) {
-      width: 100%;
-      margin-top: 40px;
-      background-position: top left 60%;
+      width: 350px;
+      margin: 200px auto;
+      background-position: top left 130px;
     }
   }
 }

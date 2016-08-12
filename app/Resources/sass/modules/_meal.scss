@@ -68,23 +68,23 @@
   }
 
   .text {
-    width: 80%;
+    width: 70%;
     padding-right: 10px;
 
     @include breakpoint(small) {
-      width: 70%;
+      width: 80%;
     }
   }
 
   .wrapper-vertical-center {
     position: absolute;
     top: 50%;
-    width: 20%;
+    width: 30%;
     height: 30px;
     margin-top: -15px;
 
     @include breakpoint(small) {
-      width: 30%;
+      width: 20%;
     }
   }
 

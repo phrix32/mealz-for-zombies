@@ -99,12 +99,11 @@ $fieldset-padding: 13px;
       top: -20px;
       right: 50px;
       margin-left: -10px;
-      border: 10px solid transparent;
-      border-bottom-color: $color-gray-light;
       content: ' ';
 
-      @include breakpoint(small) {
-        border: none;
+      @include breakpoint(medium) {
+        border: 10px solid transparent;
+        border-bottom-color: $color-gray-light;
       }
     }
   }
@@ -119,12 +118,11 @@ $fieldset-padding: 13px;
       top: -20px;
       left: 50px;
       margin-left: -10px;
-      border: 10px solid transparent;
-      border-bottom-color: $color-gray-light;
       content: ' ';
 
-      @include breakpoint(small) {
-        border: none;
+      @include breakpoint(medium) {
+        border: 10px solid transparent;
+        border-bottom-color: $color-gray-light;
       }
     }
   }
@@ -132,34 +130,33 @@ $fieldset-padding: 13px;
   form {
     position: relative;
 
-    padding: 40px;
+    padding: 20px;
     background-color: $color-gray-light;
     text-align: center;
 
-    @include breakpoint(small) {
-      padding: 20px;
+    @include breakpoint(medium) {
+      padding: 40px;
     }
   }
 
   fieldset {
-    float: left;
-    width: 50%;
+    width: 100%;
+    margin-bottom: 20px;
     padding: $fieldset-padding $fieldset-padding 0;
     text-align: left;
 
-    @include breakpoint(small) {
-      float: none;
-      width: 100%;
-      margin-bottom: 20px;
+    @include breakpoint(medium) {
+      float: left;
+      width: 50%;
     }
   }
 
   .select-wrapper {
-    width: 50%;
+    width: calc(100% - (#{$fieldset-padding} * 2));
     margin: 0 auto 10px;
 
-    @include breakpoint(small) {
-      width: calc(100% - (#{$fieldset-padding} * 2));
+    @include breakpoint(medium) {
+      width: 50%;
     }
   }
 }

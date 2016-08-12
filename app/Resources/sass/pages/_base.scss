@@ -4,11 +4,16 @@
 
 body {
   overflow: scroll;
+  padding-top: $header-height / 1.5;
   color: $color-base;
   background: $color-body;
   font-size: 14px;
   font-family: "ClanOTNews", sans-serif;
   -webkit-font-smoothing: antialiased;
+
+  @include breakpoint(medium) {
+    padding-top: $header-height;
+  }
 }
 
 $a-tags: 'a, a:active, a:hover, a:visited';
@@ -28,18 +33,27 @@ $a-tags-hover: 'a:active, a:hover';
 
   max-width: 1220px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 20px;
 
-  @include breakpoint(small) {
-    padding: 0 20px;
+  @include breakpoint(medium) {
+    padding: 0 40px;
   }
 }
 
 .content-wrapper {
-  margin-top: -25px;
   padding-top: 25px;
   padding-bottom: 25px;
   background: $color-white;
+  transform: translate3d(0, 0, 0);
+  transition: transform 200ms;
+
+  .navigate > & {
+    transform: translate3d(-$transition-width, 0, 0);
+
+    @include breakpoint(medium) {
+      transform: translate3d(0, 0, 0);
+    }
+  }
 }
 
 

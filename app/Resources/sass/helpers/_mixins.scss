@@ -25,17 +25,20 @@
 //  Breakpoints
 //**************************************
 @mixin breakpoint($point) {
+  @if $point == xlarge {
+    @media (min-width: $bp-extra-large) { @content ; }
+  }
   @if $point == large {
     @media (min-width: $bp-large) { @content ; }
   }
   @else if $point == medium {
-    @media (max-width: $bp-medium) { @content ; }
+    @media (min-width: $bp-medium) { @content ; }
   }
   @else if $point == small {
-    @media (max-width: $bp-small) { @content ; }
+    @media (min-width: $bp-small) { @content ; }
   }
-  @else if $point == smaller {
-    @media (max-width: $bp-smaller) { @content ; }
+  @else if $point == xsmall {
+    @media (min-width: $bp-extra-small) { @content ; }
   }
 }
 

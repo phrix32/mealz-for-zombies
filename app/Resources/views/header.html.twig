@@ -2,14 +2,16 @@
 
 <header>
 	<div class="container">
-		<a class="logo" href="{{ path('MealzMealBundle_home') }}">
+        {% set isLoggedIn = is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        {% set isKitchenStaff = is_granted('ROLE_KITCHEN_STAFF') %}
+        {% set hasHamburger = not isLoggedIn or isKitchenStaff %}
+		<a class="logo {{ hasHamburger ? "" : "partial" }}" href="{{ path('MealzMealBundle_home') }}">
 			<img src="{{ asset('images/logo.png') }}" alt="AOE" />
 			<span>AOEMEALS</span>
 		</a>
-
-		<div class="header-content">
-            {% if is_granted('ROLE_KITCHEN_STAFF') %}
-                <ul class="navbar">
+		<nav class="header-content {{ hasHamburger ? "sidebar" : "common" }}">
+            <ul class="navbar {{ isKitchenStaff ? "wide" : "" }}">
+                {% if isKitchenStaff %}
                     <li>
                         <a href="{{ path('MealzMealBundle_Meal') }}"
                            class="{{ activeRoute matches '/MealzMealBundle_Meal.*/' ? 'active' }}">
@@ -34,25 +36,25 @@
                             {{ 'header.navigation.costs'|trans({}, 'general') }}
                         </a>
                     </li>
-                </ul>
-            {% endif %}
-            <div class="login">
-                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-                    <div class="login-text">{{ 'header.logged_in_text'|trans({}, 'general') }}: <strong>{{ app.user.username }}</strong></div>
-                    <div class="balance-text">
-                        {{ 'header.balance'|trans({}, 'general') }}: <strong>{{ wallet.getBalance(app.user.profile) }}€</strong>
-                    </div>
-                    {{ MealzButton.link(path('MealzUserBundle_logout'), '', '', '', 'glyphicon-log-out') }}
-                {% else %}
-                    <form class="login-form" action="{{ path('MealzUserBundle_checkLogin') }}" method="post">
-                        <input type="text" placeholder="Username" class="form-control" name="_username" autofocus />
-                        <input type="password" placeholder="Password" class="form-control" name="_password" />
-                        <button type="submit" class="button button-login">LOGIN</button>
-                    </form>
                 {% endif %}
-            </div>
-		</div>
-		<div class="header-toggle hamburger">
+                <li class="login {{ isLoggedIn ? "" : "login-form" }}">
+                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                        <div class="login-text">{{ 'header.logged_in_text'|trans({}, 'general') }}: <strong>{{ app.user.username }}</strong></div>
+                        <div class="balance-text">
+                            {{ 'header.balance'|trans({}, 'general') }}: <strong>{{ wallet.getBalance(app.user.profile) }}€</strong>
+                        </div>
+                        {{ MealzButton.link(path('MealzUserBundle_logout'), '', '', '', 'glyphicon-log-out') }}
+                    {% else %}
+                        <form action="{{ path('MealzUserBundle_checkLogin') }}" method="post">
+                            <input type="text" placeholder="Username" class="form-control" name="_username" autofocus />
+                            <input type="password" placeholder="Password" class="form-control" name="_password" />
+                            <button type="submit" class="button button-login">LOGIN</button>
+                        </form>
+                    {% endif %}
+                </li>
+            </ul>
+		</nav>
+		<div class="header-toggle hamburger {{ hasHamburger ? "" : "hidden" }}">
 			<span>toggle</span>
 		</div>
 	</div>
