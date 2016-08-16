@@ -59,8 +59,6 @@ class CashController extends BaseController
 
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
-                $transaction->setId(uniqid('BAR-'));
-                $transaction->setSuccessful(1);
                 $em->persist($transaction);
                 $em->flush();
 
@@ -73,6 +71,13 @@ class CashController extends BaseController
                     'messages'
                 );
                 $this->addFlashMessage($message, 'success');
+
+                $logger = $this->get('monolog.logger.balance');
+                $logger->addInfo('admin added {amount}€ into wallet of {profile} (Transaction: {transactionId})', array(
+                    "profile" => $transaction->getProfile(),
+                    "amount" => $transaction->getAmount(),
+                    "transactionId" => $transaction->getId()
+                ));
             }
         }
 
