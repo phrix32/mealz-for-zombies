@@ -1,2 +1,7 @@
 session:
   expired: Session expired!
+
+participant:
+  wrong: You can change participation only for yourself.
+  unallowed: You can't change participation at this time.
+  uniquie: Participation must be unique.
