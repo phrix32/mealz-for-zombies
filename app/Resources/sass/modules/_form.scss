@@ -111,12 +111,17 @@ $fieldset-padding: 13px;
   .edit-form {
     form {
       display: none;
+
+      @include breakpoint(medium) {
+        float: right;
+        width: 50%;
+      }
     }
 
     form::after {
       position: absolute;
       top: -20px;
-      left: 50px;
+      right: 40%;
       margin-left: -10px;
       content: ' ';
 

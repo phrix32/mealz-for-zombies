@@ -295,6 +295,7 @@ $(document).ready(function() {
 
     $('.table-sortable').DataTable({
         'aaSorting': [], // Disable initial sort
+        autoWidth: false,
         paging: false,
         searching: false,
         info: false,

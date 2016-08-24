@@ -54,6 +54,10 @@
     .table-row-form td {
       display: block;
       width: 100%;
+
+      @include breakpoint(medium) {
+        display: table-cell;
+      }
     }
 
     .dish-title {
