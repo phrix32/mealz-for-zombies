@@ -304,5 +304,13 @@ $(document).ready(function() {
         }]
     });
 
-    $(".fancybox").fancybox();
+    $(".fancybox").attr('rel', 'gallery')
+        .fancybox({
+            padding : 0,
+            openEffect : 'none',
+            helpers : {
+                title : null
+            }
+        });
+    $(".fancybox").trigger('click');
 });
