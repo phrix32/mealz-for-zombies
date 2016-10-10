@@ -1,0 +1,7 @@
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+	{% if wallet.getBalance(app.user.profile) > 50 %}
+		<div class="fancybox">
+			{{ wallet.getBalance(app.user.profile) }}
+		</div>
+	{%  endif %}
+{%  endif %}

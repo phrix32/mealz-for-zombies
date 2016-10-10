@@ -45,6 +45,7 @@ gulp.task('jshint', function() {
 gulp.task('js', function() {
     gulp.src([
             'bower_components/jquery/dist/jquery.js',
+            'bower_components/fancybox/source/jquery.fancybox.pack.js',
             'bower_components/datatables.net/js/jquery.dataTables.js',
             'bower_components/switchery/dist/switchery.min.js',
             'js/**/*.js'

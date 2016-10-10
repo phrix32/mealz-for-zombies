@@ -303,4 +303,6 @@ $(document).ready(function() {
             orderable: false
         }]
     });
+
+    $(".fancybox").fancybox();
 });
