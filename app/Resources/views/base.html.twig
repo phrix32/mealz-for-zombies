@@ -14,6 +14,9 @@
 	{% block head %}{% endblock %}
 </head>
 <body>
+	{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+		{% set balance = wallet.getBalance(app.user.profile) %}
+	{% endif %}
 
 	{% include 'MealzTemplateBundle::partials/balanceNotification.html.twig' %}
 

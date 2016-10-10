@@ -1,8 +1,8 @@
 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-	{% if wallet.getBalance(app.user.profile) > 50 %}
+	{% if balance < -50 %}
 		<div class="fancybox">
-			<p>Ich weiß, dass ich Schulden in Höhe von {{ wallet.getBalance(app.user.profile) }}€ habe und werde sie bald begleichen.</p>
-			<a href="#" class="button">ok, ich hab es gelesen</a>
+			<p>{{ "payment.acknowledge_depts.text"|trans({'%amount%': balance}, "messages") }}</p>
+			<a href="#" class="button">{{ "payment.acknowledge_depts.button"|trans({}, "messages") }}</a>
 		</div>
 	{%  endif %}
 {%  endif %}
