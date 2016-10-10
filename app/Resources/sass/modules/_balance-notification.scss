@@ -1,6 +1,20 @@
+.fancybox-overlay {
+  background: rgba(0,0,0,0.5);
+}
+
+.fancybox-opened .fancybox-skin {
+  border-radius: 0;
+  box-shadow: none;
+  background-color: $color-orange;
+  color: $color-white;
+}
+
 .fancybox {
+  padding: 40px;
+  font-family: "ClanOTBold", sans-serif;
+  font-size: 24px;
+
   /* to hide the box before popup is applied */
   display: none;
 
-  background-color: pink;
 }
