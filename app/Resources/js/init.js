@@ -307,10 +307,11 @@ $(document).ready(function() {
     $(".fancybox").attr('rel', 'gallery')
         .fancybox({
             padding : 0,
-            openEffect : 'none',
+            openEffect : 'fade',
             helpers : {
                 title : null
-            }
+            },
+            closeClick: false,
         });
     $(".fancybox").trigger('click');
 });
