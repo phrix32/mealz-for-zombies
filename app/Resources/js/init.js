@@ -306,12 +306,13 @@ $(document).ready(function() {
 
     $(".fancybox").attr('rel', 'gallery')
         .fancybox({
-            padding : 0,
+            padding : 40,
             openEffect : 'fade',
             helpers : {
                 title : null
             },
-            closeClick: false,
+            closeClick: true,
+            maxWidth: 400,
         });
     $(".fancybox").trigger('click');
 });

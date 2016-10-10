@@ -1,5 +1,5 @@
 .fancybox-overlay {
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
 }
 
 .fancybox-opened .fancybox-skin {
@@ -10,11 +10,13 @@
 }
 
 .fancybox {
-  padding: 40px;
   font-family: "ClanOTBold", sans-serif;
   font-size: 24px;
+  line-height: 30px;
 
   /* to hide the box before popup is applied */
   display: none;
+
+  p { margin-bottom: 20px; }
 
 }
