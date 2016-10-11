@@ -69,8 +69,9 @@ gulp.task('css', function() {
         .pipe(config.production ? util.noop() : sourcemaps.write());
 
     var cssStream = gulp.src(['bower_components/switchery/dist/switchery.min.css'])
+    var cssFancybox = gulp.src(['bower_components/fancybox/source/jquery.fancybox.css'])
 
-    return merge(sassStream, cssStream)
+    return merge(sassStream, cssStream, cssFancybox)
         .pipe(concat('mealz.css'))
         .pipe(gulp.dest('../../web/'));
 });
