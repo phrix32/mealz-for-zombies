@@ -314,7 +314,7 @@ $(document).ready(function() {
             closeClick: false,
             nextClick: false,
             mouseWheel: false,
-            closeBtn: true,
+            closeBtn: false,
             maxWidth: 400,
         });
     $('.fancybox').trigger('click');
