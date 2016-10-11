@@ -2,12 +2,13 @@
   background: $notification-background;
 }
 
-.fancybox-opened .fancybox-skin {
+.fancybox-skin {
   border-radius: 0;
   color: $color-white;
   background-color: $color-orange;
-  box-shadow: none;
 }
+
+.fancybox-opened .fancybox-skin { box-shadow: none; }
 
 .fancybox {
   // to hide the box before popup is applied
