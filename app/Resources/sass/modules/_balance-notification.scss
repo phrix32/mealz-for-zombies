@@ -1,22 +1,23 @@
 .fancybox-overlay {
-  background: rgba(0,0,0,0.6);
+  background: $notification-background;
 }
 
 .fancybox-opened .fancybox-skin {
   border-radius: 0;
-  box-shadow: none;
-  background-color: $color-orange;
   color: $color-white;
+  background-color: $color-orange;
+  box-shadow: none;
 }
 
 .fancybox {
-  font-family: "ClanOTBold", sans-serif;
+  // to hide the box before popup is applied
+  display: none;
   font-size: 24px;
+  font-family: "ClanOTBold", sans-serif;
   line-height: 30px;
 
-  /* to hide the box before popup is applied */
-  display: none;
-
   p { margin-bottom: 20px; }
+
+  .button:visited { color: $color-white; }
 
 }
