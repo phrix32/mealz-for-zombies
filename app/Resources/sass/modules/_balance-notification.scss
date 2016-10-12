@@ -1,4 +1,9 @@
+.fancybox-wrap {
+  z-index: 99999;
+}
+
 .fancybox-overlay {
+  z-index: 1;
   background: $notification-background;
 }
 
