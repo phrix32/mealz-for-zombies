@@ -2,5 +2,5 @@ payment:
   cash:
     success: Einzahlung für %name% in Höhe von %amount%€ wurde verbucht.
   acknowledge_debts:
-    text: Ich weiß, dass ich Schulden in Höhe von %amount%€ habe und werde sie begleichen.
+    text: Ich weiß, dass ich einen Kontostand von %amount%€ habe und werde meine Schulden umgehend begleichen.
     button: OK, kapiert!
