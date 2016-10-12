@@ -92,7 +92,6 @@ header {
   .header-content {
     float: left;
     width: calc(100% - #{$logo-width});
-    padding-top: 15px;
     transition: all .3s ease;
 
     @include breakpoint(small) {
@@ -127,7 +126,12 @@ header {
     }
 
     .login {
+      &.logged-in {
+        padding-top: 5px;
+      }
       float: right;
+      display: flex;
+      align-items: center;
 
       @include breakpoint(small) {
         float: none;
@@ -155,6 +159,9 @@ header {
 
       a {
         margin-left: 10px;
+        @include breakpoint(small) {
+          margin-left: 0px;
+        }
         color: $header-link-color;
 
         &:hover {
@@ -187,5 +194,9 @@ header {
         background: darken($header-login-button-background, 5%);
       }
     }
+  }
+
+  .language-switch {
+    padding-right: 10px;
   }
 }

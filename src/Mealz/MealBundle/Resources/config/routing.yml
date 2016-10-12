@@ -1,3 +1,7 @@
+MealzMealBundle_language_switch:
+    pattern:  /language-switch
+    defaults: { _controller: "MealzMealBundle:Language:switch" }
+
 MealzMealBundle_home:
     pattern:  /
     defaults: { _controller: "MealzMealBundle:Meal:index" }

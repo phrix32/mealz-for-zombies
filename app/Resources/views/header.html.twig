@@ -36,7 +36,14 @@
                     </li>
                 </ul>
             {% endif %}
-            <div class="login">
+            <div class="login {{ (is_granted('IS_AUTHENTICATED_REMEMBERED')) ? 'logged-in' : '' }}">
+                <a class="language-switch" href="{{ path('MealzMealBundle_language_switch') }}">
+                    {% if app.request.getLocale == 'de' %}
+                        <img src="{{ asset('images/flag-en.png') }}" />
+                    {% else %}
+                        <img src="{{ asset('images/flag-de.png') }}" />
+                    {% endif %}
+                </a>
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                     <div class="login-text">{{ 'header.logged_in_text'|trans({}, 'general') }}: <strong>{{ app.user.username }}</strong></div>
                     <div class="balance-text">
