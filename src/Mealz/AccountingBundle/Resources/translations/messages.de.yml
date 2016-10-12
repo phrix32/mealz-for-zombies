@@ -1,6 +1,6 @@
 payment:
   cash:
     success: Einzahlung für %name% in Höhe von %amount%€ wurde verbucht.
-  acknowledge_depts:
+  acknowledge_debts:
     text: Ich weiß, dass ich Schulden in Höhe von %amount%€ habe und werde sie begleichen.
     button: OK, kapiert!
