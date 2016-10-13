@@ -93,6 +93,7 @@ header {
 
   .header-content {
     float: left;
+    width: 70%;
     width: calc(100% - #{$logo-width});
     transition: all .3s ease;
 
@@ -193,6 +194,7 @@ header {
       background-color: $header-login-button-background;
       font-size: 12px;
       font-family: $font-medium;
+      float: right;
 
       &:hover {
         background: darken($header-login-button-background, 5%);
@@ -202,5 +204,7 @@ header {
 
   .language-switch {
     padding-right: 10px;
+    margin: 6px 0;
+    float: left;
   }
 }
