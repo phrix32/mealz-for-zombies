@@ -15,6 +15,7 @@ header {
 
     float: left;
     width: $logo-width;
+    margin-top: -2px;
     font-size: 26px;
     font-family: $font-bold;
 
@@ -31,6 +32,7 @@ header {
 
   .navbar {
     float: left;
+    margin-top: 11px;
 
     @include breakpoint(small) {
       float: none;
@@ -42,8 +44,8 @@ header {
 
     li {
       display: inline-block;
-      margin-right: 30px;
       max-height: 1.4em;
+      margin-right: 30px;
 
       &:last-child {
         margin-right: 0;
@@ -52,11 +54,11 @@ header {
 
     a {
       position: relative;
+      display: block;
+      height: 50px;
       color: $color-white;
       font-size: 16px;
       font-family: $font-bold;
-      height: 50px;
-      display: block;
 
       @include breakpoint(small) {
         &.active {
@@ -66,7 +68,7 @@ header {
 
       &.active::after {
         position: absolute;
-        bottom: 0;
+        bottom: -4px;
         left: 50%;
         margin-left: -10px;
         border: 10px solid transparent;
@@ -91,8 +93,8 @@ header {
 
   .header-content {
     float: left;
+    width: 70%;
     width: calc(100% - #{$logo-width});
-    padding-top: 15px;
     transition: all .3s ease;
 
     @include breakpoint(small) {
@@ -127,7 +129,9 @@ header {
     }
 
     .login {
+      display: flex;
       float: right;
+      align-items: center;
 
       @include breakpoint(small) {
         float: none;
@@ -137,6 +141,10 @@ header {
           bottom: 20px;
           left: 20px;
         }
+      }
+
+      &.logged-in {
+        padding-top: 5px;
       }
 
       &-text,
@@ -156,6 +164,10 @@ header {
       a {
         margin-left: 10px;
         color: $header-link-color;
+
+        @include breakpoint(small) {
+          margin-left: 0;
+        }
 
         &:hover {
           color: $color-white;
@@ -182,10 +194,17 @@ header {
       background-color: $header-login-button-background;
       font-size: 12px;
       font-family: $font-medium;
+      float: right;
 
       &:hover {
         background: darken($header-login-button-background, 5%);
       }
     }
+  }
+
+  .language-switch {
+    padding-right: 10px;
+    margin: 6px 0;
+    float: left;
   }
 }
