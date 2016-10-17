@@ -17,7 +17,7 @@ class LocalisationListener {
 	/**
 	 * @var string
 	 */
-	protected $locale;
+	protected $locale = 'en';
 
 	public function __construct(HttpHeaderUtility $httpHeaderUtility)
 	{
@@ -26,11 +26,14 @@ class LocalisationListener {
 
 	public function onKernelRequest(GetResponseEvent $getResponseEvent) {
 		$request = $getResponseEvent->getRequest();
-		if($request->headers->has('Accept-Language')) {
-			$headerLang = $request->headers->get('Accept-Language');
-			$this->locale = $this->httpHeaderUtility->getLocaleFromAcceptLanguageHeader($headerLang);
-			$request->setLocale($this->locale);
-		}
+		$cookies = $request->cookies;
+        if($cookies->has('locale')) {
+            $this->locale = $cookies->get('locale');
+        } elseif ($request->headers->has('Accept-Language')) {
+            $headerLang = $request->headers->get('Accept-Language');
+            $this->locale = $this->httpHeaderUtility->getLocaleFromAcceptLanguageHeader($headerLang);
+        }
+        $request->setLocale($this->locale);
 	}
 
 	public function onKernelResponse(FilterResponseEvent $filterResponseEvent) {
